@@ -1,0 +1,189 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#f5f7fb;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 80px;
+background:white;
+}
+
+.logo{
+font-weight:bold;
+font-size:20px;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+.nav-btn{
+background:#0c1b35;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+height:500px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d");
+background-size:cover;
+color:white;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.hero span{
+color:#4aa3ff;
+}
+
+.primary-btn{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+background:#1a73e8;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* CAREER */
+
+.career{
+background:#071733;
+color:white;
+text-align:center;
+padding:80px 20px;
+}
+
+.career h2{
+font-size:34px;
+margin-bottom:20px;
+}
+
+/* CLARITY */
+
+.clarity{
+padding:80px;
+text-align:center;
+}
+
+.clarity span{
+color:#1a73e8;
+}
+
+.cards{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+}
+
+.card{
+background:white;
+padding:30px;
+width:220px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* STORIES */
+
+.stories{
+background:#071733;
+color:white;
+padding:80px;
+text-align:center;
+}
+
+.story-container{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+}
+
+.story-card{
+background:white;
+color:black;
+padding:25px;
+width:250px;
+border-radius:10px;
+}
+
+/* CTA */
+
+.cta{
+background:url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40");
+background-size:cover;
+padding:100px 20px;
+text-align:center;
+color:white;
+}
+
+.cta span{
+color:#4aa3ff;
+}
+
+.cta-buttons{
+margin-top:20px;
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+.secondary-btn{
+padding:12px 25px;
+background:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+.footer{
+background:#071733;
+color:white;
+padding:60px;
+}
+
+.footer-container{
+display:flex;
+justify-content:space-between;
+}
+
+.footer-column p{
+margin-top:8px;
+}
+
+.footer-bottom{
+margin-top:40px;
+text-align:center;
+opacity:0.7;
+}
