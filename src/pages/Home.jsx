@@ -1,10 +1,22 @@
+import { useRef } from "react"; // Added useRef
 import heroImg from "../assets/hero.png"
 import ctaBg from "../assets/compass.png" 
 import logo from "../assets/logo.png"
 import { Rocket, BarChart3, Target, Menu } from "lucide-react"
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 function Home() {
+  // 1. Create references for the sections
+  const heroRef = useRef(null);
+  const clarityRef = useRef(null);
+  const successRef = useRef(null);
+  const footerRef = useRef(null);
+
+  // 2. Function to handle the smooth scroll
+  const scrollToSection = (elementRef) => {
+    elementRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="bg-white text-gray-900 overflow-x-hidden">
 
@@ -18,12 +30,19 @@ function Home() {
         {/* Hidden on mobile, flex on desktop */}
         <div className="hidden lg:flex items-center gap-12">
           <ul className="flex gap-12 text-gray-700 font-medium">
-            <li className="cursor-pointer hover:text-blue-600">Home</li>
-            <li className="cursor-pointer hover:text-blue-600">Product</li>
-            <li className="cursor-pointer hover:text-blue-600">Success Stories</li>
-            <li className="cursor-pointer hover:text-blue-600">Contact</li>
+            {/* 3. Added onClick events to links */}
+            <li onClick={() => scrollToSection(heroRef)} className="cursor-pointer hover:text-blue-600">Home</li>
+            <li onClick={() => scrollToSection(clarityRef)} className="cursor-pointer hover:text-blue-600">Product</li>
+            <li onClick={() => scrollToSection(successRef)} className="cursor-pointer hover:text-blue-600">Success Stories</li>
+            <li onClick={() => scrollToSection(footerRef)} className="cursor-pointer hover:text-blue-600">Contact</li>
           </ul>
-          <button className="bg-[#0C1B35] text-white px-5 py-2 rounded-lg">Get Started</button>
+       
+
+<Link to="/signup">
+  <button className="bg-[#0C1B35] text-white px-5 py-2 rounded-lg">
+    Get Started
+  </button>
+</Link>
         </div>
         
         {/* Mobile Menu Icon */}
@@ -32,8 +51,8 @@ function Home() {
         </div>
       </nav>
 
-      {/* HERO SECTION */}
-      <section className="relative h-[600px] md:h-[700px] flex items-center justify-center text-center px-4 pt-20">
+      {/* HERO SECTION - Added heroRef */}
+      <section ref={heroRef} className="relative h-[600px] md:h-[700px] flex items-center justify-center text-center px-4 pt-20">
         <img src={heroImg} className="absolute inset-0 w-full h-full object-cover" alt="" />
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative text-black max-w-3xl">
@@ -95,8 +114,8 @@ function Home() {
         </div>
       </section>
 
-      {/* CLARITY SECTION */}
-      <section className="relative bg-gray-100 py-20 md:py-28 text-center px-6 overflow-hidden">
+      {/* CLARITY SECTION - Added clarityRef */}
+      <section ref={clarityRef} className="relative bg-gray-100 py-20 md:py-28 text-center px-6 overflow-hidden">
         <div className="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-gradient-to-tr from-blue-400/40 to-transparent blur-3xl"></div>
         <div className="absolute right-6 md:right-24 top-10 md:top-20 grid grid-cols-4 gap-3 opacity-80">
           {[...Array(16)].map((_, i) => (
@@ -150,8 +169,8 @@ function Home() {
         </div>
       </section>
 
-      {/* SUCCESS STORIES */}
-      <section className="bg-[#0C1B35] pt-20 pb-0 text-center relative overflow-hidden">
+      {/* SUCCESS STORIES - Added successRef */}
+      <section ref={successRef} className="bg-[#0C1B35] pt-20 pb-0 text-center relative overflow-hidden">
         <div className="absolute left-0 top-24 opacity-50 hidden lg:block">
           <div className="grid grid-cols-4 gap-3">
             {[...Array(24)].map((_, i) => (
@@ -220,8 +239,8 @@ function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-[#0C1B35] text-white py-14 px-6 md:px-16">
+      {/* FOOTER - Added footerRef */}
+      <footer ref={footerRef} className="bg-[#0C1B35] text-white py-14 px-6 md:px-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
           <div>
             <h3 className="font-semibold text-lg">Global Pathways AI</h3>
