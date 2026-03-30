@@ -3,6 +3,7 @@ import Home from "./pages/Home"
 import SignUp from "./pages/SignUp"
 import RoleSelection from "./pages/RoleSelection"
 import { CollegeStudentForm }  from "./pages/CollegeStudentForm"
+import CareerSwitcherForm from "./pages/CareerSwitcherForm"
 function App() {
   return (
     <Routes>
@@ -10,6 +11,7 @@ function App() {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/role-selection" element={<RoleSelection />} />
       <Route path="/college-form" element={<CollegeStudentForm />} />
+      <Route path="/career-switcher-form" element={<CareerSwitcherForm />} />
     </Routes>
   )
 }

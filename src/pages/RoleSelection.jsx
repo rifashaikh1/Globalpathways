@@ -1,11 +1,24 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight, GraduationCap, RefreshCw, Briefcase, User } from "lucide-react";
 
 export default function RoleSelection({ userName = "there", onRoleSelect }) {
   const [selectedRole, setSelectedRole] = useState("");
+  const navigate = useNavigate();
 
   const handleContinue = () => {
-    if (selectedRole && onRoleSelect) {
+    if (!selectedRole) return;
+
+    // Redirect based on role
+    if (selectedRole === "college-student") {
+      navigate("/college-form");
+    } else if (selectedRole === "career-switcher") {
+      navigate("/career-switcher-form");
+    } else {
+      navigate("/"); // fallback
+    }
+
+    if (onRoleSelect) {
       onRoleSelect(selectedRole);
     }
   };
@@ -44,7 +57,6 @@ export default function RoleSelection({ userName = "there", onRoleSelect }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       
-      {/* Decorative */}
       <div className="absolute top-20 right-20 w-64 h-64 bg-cyan-400/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl"></div>
 
@@ -65,7 +77,6 @@ export default function RoleSelection({ userName = "there", onRoleSelect }) {
             Let's personalize your experience. What best describes your current situation?
           </p>
 
-          {/* Progress */}
           <div className="flex items-center justify-center gap-2 mt-8">
             <div className="w-8 h-2 bg-cyan-500 rounded-full"></div>
             <div className="w-8 h-2 bg-gray-300 rounded-full"></div>
@@ -90,7 +101,6 @@ export default function RoleSelection({ userName = "there", onRoleSelect }) {
                     : "border-gray-200 hover:border-cyan-300"
                 }`}
               >
-                {/* Selected Tick */}
                 {isSelected && (
                   <div className="absolute top-4 right-4 w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center">
                     <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
@@ -99,12 +109,10 @@ export default function RoleSelection({ userName = "there", onRoleSelect }) {
                   </div>
                 )}
 
-                {/* Icon */}
                 <div className="w-16 h-16 rounded-xl bg-slate-900 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <Icon className="w-8 h-8 text-cyan-400" strokeWidth={2.5} />
                 </div>
 
-                {/* Text */}
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
                   {role.title}
                 </h3>
@@ -113,7 +121,6 @@ export default function RoleSelection({ userName = "there", onRoleSelect }) {
                   {role.description}
                 </p>
 
-                {/* Badges */}
                 {role.id === "early-career-with-experience" && (
                   <span className="mt-4 inline-block px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-xs font-semibold">
                     With Experience
@@ -150,7 +157,6 @@ export default function RoleSelection({ userName = "there", onRoleSelect }) {
           </p>
         </div>
 
-        {/* Skip */}
         <div className="text-center mt-8">
           <button className="text-gray-600 hover:text-gray-900 font-medium">
             Skip for now →
