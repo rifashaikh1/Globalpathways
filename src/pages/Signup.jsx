@@ -36,9 +36,11 @@ export default function SignUp() {
 
   // ✅ SUBMIT → GO TO ROLE PAGE
   const handleSubmit = (e) => {
-  e.preventDefault();
-  navigate("/role-selection");
-};
+    e.preventDefault();
+    console.log("Signup Data:", formData);
+
+    navigate("/role-selection");
+  };
 
   const getPasswordStrength = () => {
     const password = formData.password;
@@ -59,7 +61,7 @@ export default function SignUp() {
   const passwordStrength = getPasswordStrength();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center py-12 px-4">
+    <div className="min-h-screen overflow-y-auto bg-gradient-to-br from-slate-50 to-blue-50 flex justify-center py-12 px-4">
 
       {/* Background */}
       <div className="absolute top-20 right-20 w-64 h-64 bg-cyan-400/20 rounded-full blur-3xl"></div>
@@ -223,8 +225,22 @@ export default function SignUp() {
           </form>
         </div>
 
-        {/* BACK */}
+        {/* ✅ SIGN IN BUTTON (NOW VISIBLE) */}
         <div className="text-center mt-6">
+          <p className="text-gray-600">
+            Already have an account?
+          </p>
+
+          <button
+            onClick={() => navigate("/signin")}
+            className="text-cyan-600 font-semibold hover:underline mt-1"
+          >
+            Sign In
+          </button>
+        </div>
+
+        {/* BACK */}
+        <div className="text-center mt-4">
           <button
             onClick={() => navigate("/")}
             className="text-gray-600 hover:text-black"
