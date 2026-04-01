@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Check, ChevronRight } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 export function CollegeStudentForm({ userName = 'there', onComplete }) {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
 
   const [formData, setFormData] = useState({
@@ -60,10 +62,18 @@ export function CollegeStudentForm({ userName = 'there', onComplete }) {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
 
-  const handleSubmit = () => {
-    console.log('Form submitted:', formData);
+  const handleSubmit = (e) => {
+  if (e) e.preventDefault();
+
+  console.log('Form submitted:', formData);
+
+  // ✅ Safe check
+  if (onComplete) {
     onComplete(formData);
-  };
+  }
+
+  navigate("/career-recommendation");
+};
 
   const updateFormData = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));

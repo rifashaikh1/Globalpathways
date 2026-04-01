@@ -14,6 +14,10 @@ export default function RoleSelection({ userName = "there", onRoleSelect }) {
       navigate("/college-form");
     } else if (selectedRole === "career-switcher") {
       navigate("/career-switcher-form");
+    } else if (selectedRole === "early-career-with-experience") {
+      navigate("/early-career-form");
+    } else if (selectedRole === "early-career-without-experience") {
+      navigate("/fresh-graduate");
     } else {
       navigate("/"); // fallback
     }

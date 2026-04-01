@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Check, ChevronRight } from 'lucide-react';
-
+import { useNavigate } from "react-router-dom";
 export default function CareerSwitcherForm({ userName, onComplete }) {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
+
 
   const [formData, setFormData] = useState({
     age: '',
@@ -50,7 +52,19 @@ export default function CareerSwitcherForm({ userName, onComplete }) {
       setCurrentStep(currentStep - 1);
     }
   };
+ 
+  const handleSubmit = (e) => {
+  if (e) e.preventDefault();
 
+  console.log('Form submitted:', formData);
+
+  // ✅ Safe check
+  if (onComplete) {
+    onComplete(formData);
+  }
+
+  navigate("/career-recommendation");
+};
   const toggleArrayItem = (field, value) => {
     const currentArray = formData[field];
     const newArray = currentArray.includes(value)
@@ -656,16 +670,31 @@ export default function CareerSwitcherForm({ userName, onComplete }) {
               </div>
 
               {/* Footer */}
-              <div className="p-6 border-t flex justify-between">
-                <button onClick={handleBack} disabled={currentStep === 1}>
-                  Back
-                </button>
+<div className="p-6 border-t flex justify-between">
+  <button
+    onClick={handleBack}
+    disabled={currentStep === 1}
+  >
+    Back
+  </button>
 
-                <button onClick={handleNext} className="bg-cyan-600 text-white px-6 py-2 rounded">
-                  {currentStep === 4 ? 'Complete' : 'Next'}
-                  <ChevronRight className="inline w-4 ml-2" />
-                </button>
-              </div>
+  {currentStep < 4 ? (
+    <button
+      onClick={handleNext}
+      className="bg-cyan-600 text-white px-6 py-2 rounded"
+    >
+      Next
+      <ChevronRight className="inline w-4 ml-2" />
+    </button>
+  ) : (
+    <button
+      onClick={handleSubmit}
+      className="bg-cyan-600 text-white px-6 py-2 rounded"
+    >
+      Complete
+    </button>
+  )}
+</div>
 
             </div>
           </div>
