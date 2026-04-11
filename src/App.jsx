@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
-import SignUp from "./pages/Signup"
+import SignUp from "./pages/SignUp"
 import RoleSelection from "./pages/RoleSelection"
 import { CollegeStudentForm }  from "./pages/CollegeStudentForm"
 import CareerSwitcherForm from "./pages/CareerSwitcherForm"
