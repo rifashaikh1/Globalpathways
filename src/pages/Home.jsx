@@ -35,6 +35,7 @@ function Home() {
             <li onClick={() => scrollToSection(clarityRef)} className="cursor-pointer hover:text-blue-600">Product</li>
             <li onClick={() => scrollToSection(successRef)} className="cursor-pointer hover:text-blue-600">Success Stories</li>
             <li onClick={() => scrollToSection(footerRef)} className="cursor-pointer hover:text-blue-600">Contact</li>
+            <Link to="/aboutus"><li className="cursor-pointer hover:text-blue-600">About Us</li></Link>
           </ul>
        
 

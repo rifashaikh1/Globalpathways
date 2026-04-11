@@ -8,6 +8,7 @@ import { FreshGraduateForm } from './pages/FreshGraduateForm';
 import { EarlyCareerForm } from './pages/EarlyCareerForm';
 import CareerRecommendation from "./pages/CareerRecommendation"
 import SignIn from './pages/SignIn'
+import { AboutUs } from './pages/AboutUs'
 function App() {
   return (
     <Routes>
@@ -20,6 +21,8 @@ function App() {
       <Route path="/early-career-form" element={<EarlyCareerForm />} />
       <Route path="/career-recommendation" element={<CareerRecommendation />} />
       <Route path="/signin" element={<SignIn />} />
+      <Route path="/aboutus" element={<AboutUs />} />
+
     </Routes>
   )
 }
